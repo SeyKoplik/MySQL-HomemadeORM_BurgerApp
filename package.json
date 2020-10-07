@@ -1,0 +1,25 @@
+{
+  "name": "burgerApp",
+  "version": "1.0.0",
+  "description": "Using Node, Express, Handlebars, MySQL and making.a homemade ORM following the MVC design pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeyKoplik/burgerApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeyKoplik/burgerApp/issues"
+  },
+  "homepage": "https://github.com/SeyKoplik/burgerApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1"
+  }
+}
