@@ -8,6 +8,7 @@ const burger = require('../models/burger.js');
 
 router.get("/", function (req, res) {
     burger.selectAll(function (data) {
+        // ============
         /// ===== WHAT IS hbsObject?!?!?!
         // const hbsObject = {
         //     burgers: data
@@ -37,7 +38,7 @@ router.put("/api/burgers/:id", function (req, res) {
     const condition = "id = " + upBurgID;
 
     console.log("condition", condition);
-
+    //==============
     /// === FIGURE WHAT THIS DOES!!!
     burger.updateOne({
         devoured: req.body.devoured
