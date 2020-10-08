@@ -2,31 +2,27 @@
 const connection = require('./connection.js');
 
 
-// create the methose that will execute the necessary MySQL commands in the controllers. These are the methodes you will need to use in order to retrieve and store data in your database
-const orm = {
-    selectAll: function (tableInput, callback) {
-        const queryString = "SELECT * FROM ? ";
-        connection.query(queryString, [tableInput], function (err, result) {
+// create the method that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database
+var orm = {
+    selectAll: function (tableInput, cb) {
+        let queryString = "SELECT * FROM " + tableInput + ";";
+
+        console.log("$$$$$$$$$$")
+        console.log(queryString);
+        
+        // ==================
+        // how to grab all the burgers from the database
+        connection.query(queryString, function (err, result) {
             if (err) throw err;
 
-            callback(result);
+            cb(result);
         });
     },
 
     insertOne: function (table, cols, vals, cb) {
-        const queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table + cols + "VALUES " + vals;
 
-        //================
-        //how to get enter the kind of burger into the database
-        //=== THIS IS CATS APP
-        // queryString += " (";
-        // queryString += cols.toString();
-        // queryString += ") ";
-        // queryString += "VALUES (";
-        // queryString += printQuestionMarks(vals.length);
-        // queryString += ") ";
-
-        // console.log(queryString);
+        console.log(queryString);
 
         connection.query(queryString, vals, function (err, result) {
             if (err) throw err;
@@ -35,19 +31,10 @@ const orm = {
         });
     },
 
-    updateOne: function (table, objColVals, condition, cb) {
-        const queryString = "UPDATE " + table;
+    updateOne: function (table, cols, condition, cb) {
+        let queryString = "UPDATE " + table + " SET " + cols + " WHERE " + condition;
 
-        //================
-        //how to get enter the kind of burger into the database
-        //=== THIS IS CATS APP
-
-        // queryString += " SET ";
-        // queryString += objToSql(objColVals);
-        // queryString += " WHERE ";
-        // queryString += condition;
-
-        // console.log(queryString);
+        console.log(queryString);
 
         connection.query(queryString, function (err, result) {
             if (err) {

@@ -4,7 +4,7 @@ const orm = require('../config/orm.js');
 
 // code that will call the ORM functions using burger specific input for the ORM
 
-const burger = {
+var burger = {
     selectAll: function(cb) {
         orm.selectAll("burgers", function(res) {
             cb(res);
@@ -12,12 +12,12 @@ const burger = {
     },
     // The variables cols and vals are arrays
     insertOne: function(cols, vals, cb) {
-        orm.insertOne("burgers", cols, vals, function(res) {
+        orm.insertOne("burgers", vals, function(res) {
             cb(res);
         });
     },
-    updateOne: function(objColVals, condition, cb) {
-        orm.updateOne("burgers", objColVals, condition, function(res) {
+    updateOne: function(condition, cb) {
+        orm.updateOne("burgers", "devoured = 1", condition, function(res) {
             cb(res);
         });
     }
