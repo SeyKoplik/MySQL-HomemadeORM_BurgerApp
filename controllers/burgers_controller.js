@@ -7,14 +7,14 @@ const burger = require('../models/burger.js');
 router.get(["/", "/api/burgers"], function (req, res) {
     burger.selectAll(function (data) {
         
-        console.log(data);
-        console.log(`=============`)
+        // console.log(data);
+        // console.log(`=============`)
 
         //==handlebars object
         let hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
+        // console.log(hbsObject);
 
         res.render("index", hbsObject);
     });
@@ -23,9 +23,7 @@ router.get(["/", "/api/burgers"], function (req, res) {
 router.post("/api/burgers", function (req, res) {
     let newBurgName = req.body.name;
 
-    console.log(newBurgName);
-
-
+    // console.log(newBurgName);
 
     burger.insertOne("(burger_name, devoured)", [`"${newBurgName}"`, 0], function (result) {
         //Send back the ID of the new burger
@@ -38,7 +36,7 @@ router.put("/api/burgers/:id", function (req, res) {
 
     let condition = "id = " + upBurgID;
 
-    console.log("condition", condition);
+    // console.log("condition", condition);
     //==============
     /// === SETS FROM NOT DEVOURED TO DEVOURED
     burger.updateOne(condition, function (result) {
