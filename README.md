@@ -1,2 +1,21 @@
-# burgerApp
-Using Node, Express, Handlebars, MySQL and making.a homemade ORM following the MVC design pattern
+# Burger Devouring App
+
+## Description
+
+## Screenshots
+
+## Installation
+
+## Usage
+
+## Attributes
+
+## License
+
+## Links
+
+
+
+
+---
+Copyright Ⓒ 2020 Seychelle Koplik
