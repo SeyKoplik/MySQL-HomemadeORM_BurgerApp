@@ -4,7 +4,7 @@ const router = express.Router();
 
 const burger = require('../models/burger.js');
 
-router.get("/", function (req, res) {
+router.get(["/", "/api/burgers"], function (req, res) {
     burger.selectAll(function (data) {
         
         console.log(data);
@@ -20,14 +20,16 @@ router.get("/", function (req, res) {
     });
 });
 
-router.post("api/burgers", function (req, res) {
+router.post("/api/burgers", function (req, res) {
     let newBurgName = req.body.name;
 
     console.log(newBurgName);
 
-    burger.insertOne("burger_name, devoured", newBurgName, function (result) {
+
+
+    burger.insertOne("(burger_name, devoured)", [`"${newBurgName}"`, 0], function (result) {
         //Send back the ID of the new burger
-        res.join({ id: result.insertId });
+        res.json({ id: result.insertId });
     });
 });
 
